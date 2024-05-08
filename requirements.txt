@@ -2,5 +2,6 @@ streamlit
 plotly==5.22.0
 plotly-express
 pandas==2.2.2
+os-sys
 os
 seaborn==0.13.2
