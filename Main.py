@@ -76,9 +76,9 @@ with col2:
 
         
 filtered_df["month_year"] = filtered_df["Order Date"].dt.to_period("M")
-st.subheader('Average Profit over Time')
+st.subheader('Total Profit over Time')
 
-linechart = pd.DataFrame(filtered_df.groupby(filtered_df["month_year"].dt.strftime("%Y : %b"))["Profit"].mean()).reset_index()
+linechart = pd.DataFrame(filtered_df.groupby(filtered_df["month_year"].dt.strftime("%Y : %b"))["Profit"].sum()).reset_index()
 fig2 = px.line(linechart, x = "month_year", y="Profit", labels = {"Profit": "Profit"}, height=500, width=1000, template="gridon")
 st.plotly_chart(fig2,use_container_width=True)
 
@@ -90,7 +90,7 @@ st.plotly_chart(bar_chart)
 
 # Create a scatter plot
 st.subheader('Profit vs Sales by Category')
-data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size = "Quantity", color = "Category")
+data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size = "Quantity", color = "Ship Mode")
 data1['layout'].update(xaxis = dict(title="Sales",titlefont=dict(size=19)),
                        yaxis = dict(title = "Profit", titlefont = dict(size=19)))
 data1.add_hline(y=0, line=dict(color="black", dash="solid"))
