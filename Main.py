@@ -90,7 +90,7 @@ st.plotly_chart(bar_chart)
 
 # Create a scatter plot
 st.subheader('Profit vs Sales by Category')
-data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size = "Quantity", color = "Order Priority")
+data1 = px.scatter(filtered_df, x = "Sales", y = "Profit", size = "Quantity", color = "Category")
 data1['layout'].update(xaxis = dict(title="Sales",titlefont=dict(size=19)),
                        yaxis = dict(title = "Profit", titlefont = dict(size=19)))
 data1.add_hline(y=0, line=dict(color="black", dash="solid"))
