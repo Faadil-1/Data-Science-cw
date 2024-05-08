@@ -1,5 +1,5 @@
 streamlit
 plotly
 pandas==2.2.2
-os
+os-sys
 seaborn==0.13.2
